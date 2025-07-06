@@ -1,0 +1,407 @@
+/* ttfファイルを読み込んで、フォントを登録する */
+@font-face {
+    font-family: 'Rounded Mplus 1c';
+    src: url('../fonts/rounded-mplus-1c-regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* ページ全体 */
+body {
+    margin: 0;
+    font-family: 'Rounded Mplus 1c', sans-serif;
+    background-color: #f4f7f6;
+}
+
+/* ヘッダー, 他ページと共通のデザイン */
+.dept-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    height: 80px;
+}
+
+/* 研究室一覧へ戻るボタン */
+.back-button {
+    background-color: #006DC0;
+    color: #fff;
+    padding: 8px 24px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.back-button:hover {
+    background-color: #004C9A;
+}
+
+/* ページのメイン部全体 */
+.dept-section {
+    padding: 4rem 2rem;
+    text-align: center;
+    position: relative;
+}
+
+#lab-intro {
+    background-image: url('../img/bg7.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    z-index: 1;
+}
+
+
+/* 見出しのスタイル */
+.section-title {
+    font-size: 2rem;
+    color: white;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 0.75rem 1.5rem;
+    border-radius: 1rem;
+    backdrop-filter: blur(4px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    display: inline-block;
+    max-width: 90%;
+    margin: 0 auto 1.5rem auto;
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.page-subtitle {
+    color: #fff;
+    font-weight: 700;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+/* 白背景のコンテンツラッパー */
+.content-box {
+    max-width: 800px;
+    margin: 2rem auto 0;
+    background: rgba(255, 255, 255, 0.92);
+    /* 少し透明な白 */
+    padding: 2rem;
+    border-radius: 1rem;
+    text-align: left;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.lab-image-main {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    object-fit: cover;
+    max-height: 350px;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.info-item .info-title {
+    font-size: 1.3rem;
+    border-bottom: 2px solid #006DC0;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.tags-container {
+    margin-top: 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.lab-tag {
+    font-size: 0.9rem;
+    padding: 0.4em 0.8em;
+    border-radius: 1rem;
+    background-color: #e9ecef;
+    color: #495057;
+    margin-right: 0;
+    font-weight: 700;
+}
+
+.description {
+    line-height: 1.8;
+}
+
+.time-selector {
+    transition: all 0.5s ease-in-out;
+    overflow: hidden;
+}
+
+/* JavaScriptで管理 表示非表示切替用 */
+.time-selector.hidden {
+    opacity: 0;
+    max-height: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.selector-title {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: #444;
+}
+
+.option-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+.option-group input[type="radio"] {
+    display: none;
+}
+
+/* 日付選択ボタンのスタイル */
+.option-label {
+    padding: 0.75rem 1.5rem;
+    border: 1px solid #ccc;
+    border-radius: 2rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-weight: 700;
+    background-color: #fff;
+}
+
+.option-label:hover {
+    background-color: #e0eefc;
+    border-color: #006DC0;
+}
+
+/* 選択された状態の日付選択ボタンのスタイル (背景色と文字色を変更) */
+input[type="radio"]:checked+.option-label {
+    background-color: #006DC0;
+    color: white;
+    border-color: #006DC0;
+}
+
+/* タイムテーブルのスタイル */
+#timetable-container {
+    position: relative;
+    transition: height 0.4s ease-in-out;
+}
+
+/* 各時間枠を格子状に並べる */
+.timetable-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1rem;
+    transition: opacity 0.4s ease-in-out;
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* JavaScriptでactiveが付与されると表示 */
+.timetable-grid.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* 時間枠のスタイル */
+.time-slot {
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+    transition: all 0.2s ease;
+}
+
+.time-label {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.status-icon {
+    font-size: 2.5rem;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+.status-text {
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+/* 予約可能の時の時間枠スタイル */
+.time-slot.available {
+    border-color: #002246;
+    color: #002246;
+    cursor: pointer;
+}
+
+.time-slot.available:hover {
+    background-color: #e6f2ff;
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.status-icon.available-icon {
+    color: #dc3545;
+}
+
+/* 予約不可の時の時間枠スタイル */
+.time-slot.unavailable {
+    background-color: #f8f9fa;
+    border-color: #e9ecef;
+    color: #adb5bd;
+    cursor: not-allowed;
+}
+
+.status-icon.unavailable-icon {
+    color: #007bff;
+}
+
+#lab-reservation {
+    background-image: url('../img/bg8.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    z-index: 1;
+}
+
+/* フッター */
+.main-footer {
+    background-color: #006DC0;
+    color: white;
+    padding: 2rem;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+/* モーダルウィンドウのスタイル 初期状態は非表示かつ操作不可 */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+/* JavaScriptでshowが付与されると表示 操作可能に */
+.modal-overlay.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* ポップアップするウィンドウ */
+.modal-box {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 450px;
+    text-align: center;
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.modal-overlay.show .modal-box {
+    transform: scale(1);
+}
+
+.modal-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.modal-buttons {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+/* キャンセルと予約を確定ボタンのスタイル */
+.modal-button {
+    flex: 1;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.modal-button.cancel {
+    background-color: #6c757d;
+    color: white;
+}
+
+.modal-button.cancel:hover {
+    background-color: #5a6268;
+}
+
+.modal-button.confirm {
+    background-color: #d93025;
+    color: white;
+}
+
+.modal-button.confirm:hover {
+    background-color: #c82333;
+}
+
+@media (max-width: 768px) {
+
+    /* ボタンのテキストを非表示にする */
+    .back-button .button-text {
+        display: none;
+    }
+
+    /* ボタンを円形アイコンのデザインに変更する */
+    .back-button {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        padding: 0;
+        font-size: 1.4rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* 矢印のアイコンを追加する */
+    .back-button::before {
+        content: '←';
+    }
+
+    /*「研究室紹介」と「体験内容」のグリッドを1列にする */
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>先端プログラミング学科｜ネオテック未来大学</title>
+    <!-- 使用CSSファイル -->
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/css/deptStyle.css">
+</head>
+
+<body>
+    <!-- ヘッダー -->
+    <header class="dept-header">
+        <div class="logo-container">
+            <img src="assets/img/Logo.png" alt="大学ロゴ" class="logo">
+            <!-- ハンバーガーメニュー -->
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+                <div class="hamburger-label">メニュー</div>
+            </button>
+
+        </div>
+
+        <!-- PC用ナビゲーション -->
+        <div class="header-links desktop-nav">
+            <nav class="dept-nav">
+                <a href="#intro">学科紹介</a>
+                <a href="#labs">研究室一覧と体験予約</a>
+            </nav>
+            <!-- クリックでメインページへ -->
+            <div class="header-buttons">
+                <a href="main.html" class="back-button">メインページへ戻る</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- スマホ用ナビゲーション -->
+    <nav class="mobile-nav" id="mobileNav">
+        <div class="mobile-nav-links">
+            <a href="#intro" class="menu-item">学科紹介</a>
+            <a href="#labs" class="menu-item">研究室一覧と体験予約</a>
+        </div>
+        <a href="main.html" class="menu-item back-button-mobile">メインページへ戻る</a>
+    </nav>
+
+    <main>
+        <img src="assets/img/ap_head.png" alt="先端プログラミング学科イメージ写真" class="department-image">
+        <!-- 学科紹介 -->
+        <section id="intro" class="dept-section">
+            <h2 class="section-title">先端プログラミング学科とは</h2>
+            <p class="section-text">
+                私たちが生きる現代社会は、ソフトウェアによって根底から変革される「ソフトウェア・ファースト」の時代です。<br>
+                <br>
+                先端プログラミング学科は、単にコードを書く技術者を育てる場所ではありません。<br>
+                AIによる知能の拡張、量子コンピュータによる計算の革命、ロボティクスによる物理世界の進化。
+                これら未来を創造する核心技術を、その動作原理から深く理解し、社会に新たな価値を生み出す「知の創造者」を育成することを、私たちの使命としています。<br>
+                <br>
+                「知を創る、情報で拓く未来」。このスローガンのもと、未来の当たり前を自らの手で実装する情熱を持った仲間を待っています。<br>
+            </p>
+
+            <!-- 学科長の言葉とポリシーのボタンを追加(中身は未実装) -->
+            <div class="info-card-container">
+                <div class="info-card dean-card">
+                    <img src="assets/img/Professor1.jpeg" alt="学科長の写真" class="info-card-image">
+                    <div class="info-card-text">
+                        <h4>学科長の言葉</h4>
+                        <p>バービー・グッドマン教授</p>
+                    </div>
+                    <div class="info-card-arrow">→</div>
+                </div>
+
+                <div class="info-card policy-card">
+                    <div class="info-card-icon">
+                        <img src="assets/img/policy.png" alt="ポリシーアイコン">
+                    </div>
+                    <div class="info-card-text">
+                        <h4>3つのポリシー</h4>
+                        <ul>
+                            <li>ディプロマ・ポリシー</li>
+                            <li>カリキュラム・ポリシー</li>
+                            <li>アドミッション・ポリシー</li>
+                        </ul>
+                    </div>
+                    <div class="info-card-arrow">→</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 研究室紹介と予約 -->
+        <section id="labs" class="labs-section">
+            <h2 class="section-title">研究室一覧と体験予約</h2>
+
+            <!-- タグ絞り込み機能 -->
+            <div class="tag-filter-wrapper">
+                <h3 class="tag-filter-title">タグ絞り込み</h3>
+
+                <!-- ラジオボタンでタグごとにボタンを作成 -->
+                <div class="tag-filter-box">
+                    <!-- 初期状態は「すべてのタグ」が押された状態 -->
+                    <input type="radio" name="tag" id="tag-all" value="all" checked>
+                    <label for="tag-all" class="tag-label">すべてのタグ</label>
+
+                    <input type="radio" name="tag" id="tag-ai" value="AI">
+                    <label for="tag-ai" class="tag-label">#AI</label>
+
+                    <input type="radio" name="tag" id="tag-data" value="データサイエンス">
+                    <label for="tag-data" class="tag-label">#データサイエンス</label>
+
+                    <input type="radio" name="tag" id="tag-iot" value="IoT">
+                    <label for="tag-iot" class="tag-label">#IoT</label>
+
+                    <input type="radio" name="tag" id="tag-arvr" value="AR/VR">
+                    <label for="tag-arvr" class="tag-label">#AR/VR</label>
+
+                    <input type="radio" name="tag" id="tag-security" value="セキュリティ">
+                    <label for="tag-security" class="tag-label">#セキュリティ</label>
+
+                    <input type="radio" name="tag" id="tag-quantum" value="量子計算">
+                    <label for="tag-quantum" class="tag-label">#量子計算</label>
+
+                    <input type="radio" name="tag" id="tag-opt" value="最適化アルゴリズム">
+                    <label for="tag-opt" class="tag-label">#最適化アルゴリズム</label>
+
+                    <input type="radio" name="tag" id="tag-app" value="アプリ開発">
+                    <label for="tag-app" class="tag-label">#アプリ開発</label>
+
+                    <input type="radio" name="tag" id="tag-media" value="メディア処理">
+                    <label for="tag-media" class="tag-label">#メディア処理</label>
+                </div>
+            </div>
+
+            <!-- 研究室一覧をカード形式で表示 -->
+            <div class="container">
+                <div class="row g-4 justify-content-start">
+
+                    <!-- クリエイティブAI研究室 -->
+                    <div class="col-md-6 col-lg-4">
+                        <!-- card: bootstrapのカードコンポーネント h-100: 高さを100%の高さに固定 -->
+                        <div class="card lab-card h-100">
+                            <div class="card-body">
+                                <h5 class="lab-title">クリエイティブAI研究室</h5>
+                            </div>
+                            <img src="assets/img/labs1.jpeg" class="lab-image card-img-top" alt="クリエイティブAI研究室">
+                            <!-- card-body: カードの本文部分 d-flex: display: flex;の略 -->
+                            <div class="card-body d-flex flex-column">
+                                <div class="mb-2 text-start">
+                                    <span class="lab-tag">#AI</span>
+                                    <span class="lab-tag">#メディア処理</span>
+                                    <span class="lab-tag">#アプリ開発</span>
+                                </div>
+                                <div class="lab-highlight">
+                                    <p class="lab-subtitle">研究室体験内容</p>
+                                    <p class="lab-description">キミの考えた言葉をAIに伝え、世界で一枚だけのオリジナルイラストを描かせてみよう！</p>
+                                </div>
+                                <p class="lab-professor">担当教授：クロード・ハインリヒ</p>
+                                <a href="creative_ai.html" class="btn btn-danger mt-auto">予約はこちらから！</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 言語知能システム研究室 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card lab-card h-100">
+                            <div class="card-body">
+                                <h5 class="lab-title">言語知能システム研究室</h5>
+                            </div>
+                            <img src="assets/img/labs2.jpeg" class="lab-image card-img-top" alt="言語知能システム研究室">
+                            <div class="card-body d-flex flex-column">
+                                <div class="mb-2 text-start">
+                                    <span class="lab-tag">#メディア処理</span>
+                                    <span class="lab-tag">#データサイエンス</span>
+                                </div>
+                                <div class="lab-highlight">
+                                    <p class="lab-subtitle">研究室体験内容</p>
+                                    <p class="lab-description">AIにキミだけのキャラクターを乗り移らせて、未来の対話システムでおしゃべりしてみよう！</p>
+                                </div>
+                                <p class="lab-professor">担当教授：アメリア・リンドバーグ</p>
+                                <a href="#" class="btn btn-danger mt-auto">予約はこちらから！</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- スマートビジョン研究室 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card lab-card h-100">
+                            <div class="card-body">
+                                <h5 class="lab-title">スマートビジョン研究室</h5>
+                            </div>
+                            <img src="assets/img/labs3.jpeg" class="lab-image card-img-top" alt="スマートビジョン研究室">
+                            <div class="card-body d-flex flex-column">
+                                <div class="mb-2 text-start">
+                                    <span class="lab-tag">#メディア処理</span>
+                                    <span class="lab-tag">#IoT</span>
+                                </div>
+                                <div class="lab-highlight">
+                                    <p class="lab-subtitle">研究室体験内容</p>
+                                    <p class="lab-description">キミの手の動きをAIに認識させて、コンピュータを魔法のように操ってみよう！</p>
+                                </div>
+                                <p class="lab-professor">担当教授：ルカ・フェルナンデス</p>
+                                <a href="#" class="btn btn-danger mt-auto">予約はこちらから！</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 実世界センシング研究室 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card lab-card h-100">
+                            <div class="card-body">
+                                <h5 class="lab-title">実世界センシング研究室</h5>
+                            </div>
+                            <img src="assets/img/labs4.jpeg" class="lab-image card-img-top" alt="実世界センシング研究室">
+                            <div class="card-body d-flex flex-column">
+                                <div class="mb-2 text-start">
+                                    <span class="lab-tag">#IoT</span>
+                                    <span class="lab-tag">#データサイエンス</span>
+                                    <span class="lab-tag">#アプリ開発</span>
+                                </div>
+                                <div class="lab-highlight">
+                                    <p class="lab-subtitle">研究室体験内容</p>
+                                    <p class="lab-description">最先端センサーがキミの動きをデータに変える！？未来のヘルスケア技術を体験しよう！</p>
+                                </div>
+                                <p class="lab-professor">担当教授：サミュエル・ヴァイデンフェルト</p>
+                                <a href="#" class="btn btn-danger mt-auto">予約はこちらから！</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ARインタラクション研究室 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card lab-card h-100">
+                            <div class="card-body">
+                                <h5 class="lab-title">拡張現実（AR）インタラクション研究室</h5>
+                            </div>
+                            <img src="assets/img/labs5.jpeg" class="lab-image card-img-top" alt="ARインタラクション研究室">
+                            <div class="card-body d-flex flex-column">
+                                <div class="mb-2 text-start">
+                                    <span class="lab-tag">#AR/VR</span>
+                                    <span class="lab-tag">#メディア処理</span>
+                                    <span class="lab-tag">#アプリ開発</span>
+                                </div>
+                                <div class="lab-highlight">
+                                    <p class="lab-subtitle">研究室体験内容</p>
+                                    <p class="lab-description">タブレットをかざして、現実空間にバーチャルな恐竜やキャラクターを呼び出そう！</p>
+                                </div>
+                                <p class="lab-professor">担当教授：ナターシャ・カヴァレンコ</p>
+                                <a href="#" class="btn btn-danger mt-auto">予約はこちらから！</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 量子コンピューティング研究室 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card lab-card h-100">
+                            <div class="card-body">
+                                <h5 class="lab-title">量子コンピューティング研究室</h5>
+                            </div>
+                            <img src="assets/img/labs6.jpeg" class="lab-image card-img-top" alt="量子コンピューティング研究室">
+                            <div class="card-body d-flex flex-column">
+                                <div class="mb-2 text-start">
+                                    <span class="lab-tag">#量子計算</span>
+                                    <span class="lab-tag">#最適化アルゴリズム</span>
+                                </div>
+                                <div class="lab-highlight">
+                                    <p class="lab-subtitle">研究室体験内容</p>
+                                    <p class="lab-description">迷路の最短ルート探しに挑戦し、次世代計算技術で複雑な問題を一瞬で解いてみよう！</p>
+                                </div>
+                                <p class="lab-professor">担当教授：フィリップ・クヴァント</p>
+                                <a href="#" class="btn btn-danger mt-auto">予約はこちらから！</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ソーシャルAI研究室 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card lab-card h-100">
+                            <div class="card-body">
+                                <h5 class="lab-title">ソーシャルAI研究室</h5>
+                            </div>
+                            <img src="assets/img/labs7.jpeg" class="lab-image card-img-top" alt="ソーシャルAI研究室">
+                            <div class="card-body d-flex flex-column">
+                                <div class="mb-2 text-start">
+                                    <span class="lab-tag">#AI</span>
+                                    <span class="lab-tag">#データサイエンス</span>
+                                </div>
+                                <div class="lab-highlight">
+                                    <p class="lab-subtitle">研究室体験内容</p>
+                                    <p class="lab-description">SNSにあふれる「本音」をAIで丸裸に！？リアルタイム感情分析システムを覗いてみよう！</p>
+                                </div>
+                                <p class="lab-professor">担当教授：イザベル・ファウスト</p>
+                                <a href="#" class="btn btn-danger mt-auto">予約はこちらから！</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 計算的最適化研究室 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card lab-card h-100">
+                            <div class="card-body">
+                                <h5 class="lab-title">計算的最適化研究室</h5>
+                            </div>
+                            <img src="assets/img/labs8.jpeg" class="lab-image card-img-top" alt="計算的最適化研究室">
+                            <div class="card-body d-flex flex-column">
+                                <div class="mb-2 text-start">
+                                    <span class="lab-tag">#最適化アルゴリズム</span>
+                                    <span class="lab-tag">#データサイエンス</span>
+                                </div>
+                                <div class="lab-highlight">
+                                    <p class="lab-subtitle">研究室体験内容</p>
+                                    <p class="lab-description">キミはAIに勝てるかな？最短配送ルートを見つけ出すパズルに挑戦しよう！</p>
+                                </div>
+                                <p class="lab-professor">担当教授：アレクセイ・ボロディン</p>
+                                <a href="#" class="btn btn-danger mt-auto">予約はこちらから！</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- AIセキュリティ研究室 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card lab-card h-100">
+                            <div class="card-body">
+                                <h5 class="lab-title">AIセキュリティ研究室</h5>
+                            </div>
+                            <img src="assets/img/labs9.jpeg" class="lab-image card-img-top" alt="AIセキュリティ研究室">
+                            <div class="card-body d-flex flex-column">
+                                <div class="mb-2 text-start">
+                                    <span class="lab-tag">#セキュリティ</span>
+                                    <span class="lab-tag">#AI</span>
+                                </div>
+                                <div class="lab-highlight">
+                                    <p class="lab-subtitle">研究室体験内容</p>
+                                    <p class="lab-description">AIの“目”をだませ！画像認識AIの弱点をつく、不思議なハッキングを体験してみよう！</p>
+                                </div>
+                                <p class="lab-professor">担当教授：マーカス・デュラント</p>
+                                <a href="#" class="btn btn-danger mt-auto">予約はこちらから！</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- フッター -->
+    <footer class="main-footer text-center text-white py-4">
+        <div class="container">
+            <p class="mb-1 fw-bold">ネオテック未来大学 -Neotech Future University- </p>
+            <p class="mb-1">〒123-4567 未来県未来区イノベーション1-2-3</p>
+            <p class="mb-1">TEL：00-1234-5678（平日9:00〜17:00）</p>
+
+            <p class="small mb-1">※ 本サイトは架空の大学のオープンキャンパス特設ページです。</p>
+            <p class="small mb-2">※ 使用画像は全て著作権フリーのものを使用しています。</p>
+
+            <p class="mb-0 small">&copy; 2025 Footer, Inc.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/deptScript.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>メインページ｜ネオテック未来大学</title>
+    <!-- 使用CSSファイルとCDNフォント-->
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/css/mainStyle.css">
+    <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/orbitron">
+</head>
+
+<body>
+    <!-- ページ最上部アンカー-->
+    <div id="top"></div>
+
+    <header class="main-header">
+        <div class="logo-container">
+            <a href="#top" class="logo-link">
+                <img src="assets/img/Logo.png" alt="大学ロゴ" class="logo">
+            </a>
+
+            <!-- ハンバーガーメニュー（スマホ用） -->
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+                <div class="hamburger-label">メニュー</div>
+            </button>
+        </div>
+
+        <!-- ヘッダーのナビゲーションとボタン -->
+        <div class="header-links desktop-nav">
+            <nav class="main-nav">
+                <a href="#schedule">開催日程</a>
+                <a href="#event">イベント</a>
+                <a href="#academic">学部学科紹介</a>
+                <a href="#reservation">予約確認</a>
+            </nav>
+            <div class="header-buttons">
+                <a href="#" class="icon-button">
+                    <img src="assets/img/language.png" alt="言語">
+                    <span>言語</span>
+                </a>
+                <a href="#" class="icon-button">
+                    <img src="assets/img/home.png" alt="大学HP">
+                    <span>大学HP</span>
+                </a>
+                <a href="#" class="icon-button">
+                    <img src="assets/img/access.png" alt="アクセス">
+                    <span>アクセス</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ハンバーガーメニュータップ時のナビゲーション -->
+    <nav class="mobile-nav" id="mainNav">
+        <div class="menu-row">
+            <a href="#schedule" class="menu-item">開催日程</a>
+            <a href="#event" class="menu-item">イベント</a>
+            <a href="#academic" class="menu-item">学部学科紹介</a>
+            <a href="#reservation" class="menu-item">予約確認</a>
+        </div>
+        <div class="menu-row">
+            <a href="#" class="menu-item">言語</a>
+            <a href="#" class="menu-item">大学HP</a>
+            <a href="#" class="menu-item">アクセス</a>
+        </div>
+    </nav>
+
+
+    <main>
+        <img src="assets/img/opencanpasfull.png" alt="オープンキャンパス見出し" class="campus-image">
+
+        <!-- SCHEDULEセクション py-5:paddingを5段階目 text-center: 配置を中央に -->
+        <section id="schedule" class="py-5 text-center">
+            <h2 class="section-title fade-up">SCHEDULE</h2>
+            <p class="schedule-subheading fade-up">開催日程</p>
+
+            <!-- row: 横並びの列 justify-content-center: row内の要素を中央寄せ mb-4: margin-bottomを4段階目 -->
+            <div class="row justify-content-center mb-4 fade-up">
+                <!-- 開催日のカード bootstrapのグリッドレイアウト適用 -->
+                <div class="col-12 col-md-5 col-lg-4 mb-3">
+                    <div class="schedule-card">
+                        <div class="schedule-date">7.26</div>
+                        <div class="schedule-divider"></div>
+                        <div class="schedule-day">Sat.</div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-5 col-lg-4 mb-3">
+                    <div class="schedule-card">
+                        <div class="schedule-date">7.27</div>
+                        <div class="schedule-divider"></div>
+                        <div class="schedule-day">Sun.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 開催場所と時間 -->
+            <p class="schedule-location fade-up">未来科学キャンパス開催</p>
+            <p class="schedule-time fade-up">10:00 - 16:00</p>
+        </section>
+
+        <!-- EVENTセクション -->
+        <section id="event" class="event-section text-center">
+            <h2 class="section-title fade-up">EVENT</h2>
+            <p class="event-subheading fade-up">開催イベント</p>
+
+            <!-- 各イベントの紹介 (画像＋説明) -->
+            <section class="event-item event-intro">
+                <div class="event-item-container fade-up">
+                    <div class="event-image-box">
+                        <div class="event-image-wrapper">
+                            <img src="assets/img/event1.png" alt="講義の様子" class="event-image">
+                            <div class="event-title-box">
+                                <h2>学部・学科紹介</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="event-description">
+                        迫力の大型モニターが設置された<br>
+                        記念ホールにて開催されます！<br>
+                        各学部・学科の特色・研究内容<br>
+                        入試についてわかりやすくご紹介！
+                    </div>
+                </div>
+            </section>
+
+            <section class="event-item event-tour reverse-layout">
+                <div class="event-item-container fade-up">
+                    <div class="event-image-box">
+                        <div class="event-image-wrapper">
+                            <img src="assets/img/event2.png" alt="キャンパスツアー" class="event-image">
+                            <div class="event-title-box">
+                                <h2>キャンパスツアー</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="event-description">
+                        学生スタッフが実際に<br>
+                        キャンパス内の注目スポットを<br>
+                        紹介しながらご案内します！<br>
+                        大学の雰囲気を体感しましょう！
+                    </div>
+                </div>
+            </section>
+
+            <section class="event-item event-talk">
+                <div class="event-item-container fade-up">
+                    <div class="event-image-box">
+                        <div class="event-image-wrapper">
+                            <img src="assets/img/event3.png" alt="トークショー" class="event-image">
+                            <div class="event-title-box">
+                                <h2>トークショー</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="event-description">
+                        誰もが知る有名ゲストを招いて<br>
+                        ここでしか聞けない<br>
+                        秘密のトークをお届け！<br>
+                        誰が来るかは来てからのお楽しみ！
+                    </div>
+                </div>
+            </section>
+
+            <section class="event-item event-lab reverse-layout">
+                <div class="event-item-container fade-up">
+                    <div class="event-image-box">
+                        <div class="event-image-wrapper">
+                            <img src="assets/img/event4.png" alt="研究室体験" class="event-image">
+                            <div class="event-title-box">
+                                <h2>研究室体験</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="event-description">
+                        実際の研究室に入り<br>
+                        最先端の実験や研究を体験！<br>
+                        教員や先輩から直接話を聞ける<br>
+                        貴重なチャンスです！<br>
+                        是非予約をして参加してください！
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <!-- ACADEMICセクション -->
+        <section id="academic" class="academic-section text-center">
+            <h2 class="section-title fade-up">ACADEMIC</h2>
+            <p class="academic-subheading fade-up">学部・学科紹介</p>
+
+            <!-- container: 中央寄せで幅固定の親要素 my-5: marginを5段階目 -->
+            <div class="container my-5">
+                <div class="row justify-content-start">
+
+                    <!-- 各学部のカード (3学部分) bootstrapでレスポンシブ対応 -->
+                    <div class="col-md-6 col-lg-4 mb-4 faculty-card-wrapper fade-up">
+                        <div class="faculty-card-custom" id="faculty-ci">
+                            <img src="assets/img/faculty1.jpeg" alt="創知情報学部" class="faculty-card-img">
+                            <div class="faculty-card-title-box">
+                                <h5 class="faculty-name-ja">創知情報学部</h5>
+                                <p class="faculty-name-en">Faculty of Creative Informatics</p>
+                            </div>
+                            <p class="faculty-description">
+                                「知を創る、情報で拓く未来」
+                            </p>
+                            <div class="faculty-card-footer">
+                                <span class="faculty-link-text">学部について</span>
+                                <span class="arrow-button">→</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4 mb-4 faculty-card-wrapper fade-up">
+                        <div class="faculty-card-custom">
+                            <img src="assets/img/faculty2.jpeg" alt="解析知能工学部" class="faculty-card-img">
+                            <div class="faculty-card-title-box">
+                                <h5 class="faculty-name-ja">解析知能工学部</h5>
+                                <p class="faculty-name-en">Faculty of Analytical Intelligence</p>
+                            </div>
+                            <p class="faculty-description">
+                                「解析力で課題を解き明かす力を育む」
+                            </p>
+                            <div class="faculty-card-footer">
+                                <span class="faculty-link-text">学部について</span>
+                                <span class="arrow-button">→</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4 mb-4 faculty-card-wrapper fade-up">
+                        <div class="faculty-card-custom">
+                            <img src="assets/img/faculty3.jpeg" alt="未来機構工学部" class="faculty-card-img">
+                            <div class="faculty-card-title-box">
+                                <h5 class="faculty-name-ja">未来機構工学部</h5>
+                                <p class="faculty-name-en">Faculty of Future Systems Engineering</p>
+                            </div>
+                            <p class="faculty-description">
+                                「次世代の機構を創造するエンジニアへ」
+                            </p>
+                            <div class="faculty-card-footer">
+                                <span class="faculty-link-text">学部について</span>
+                                <span class="arrow-button">→</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 創知情報学部に紐づく学科紹介カード(この学部のみ学科紹介カード作成) -->
+                    <div class="col-12 department-container" id="departments-ci">
+                        <div class="row mt-4 justify-content-start">
+
+                            <!-- 各学科のカード bootstrapでレスポンシブ対応 -->
+                            <div class="col-md-6 col-lg-4 mb-4">
+                                <div class="department-card-custom">
+                                    <img src="assets/img/department1.jpeg" alt="先端プログラミング学科"
+                                        class="department-card-img">
+                                    <div class="department-card-title">先端プログラミング学科</div>
+                                    <p class="department-card-desc">
+                                        プログラミングの基礎から、AI開発<br>
+                                        量子コンピューティングなどを学ぶ
+                                    </p>
+                                    <a href="department_ap.html">
+                                        <button class="department-button">研究室紹介・予約はこちら</button>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 col-lg-4 mb-4">
+                                <div class="department-card-custom">
+                                    <img src="assets/img/department2.jpeg" alt="情報創造デザイン学科" class="department-card-img">
+                                    <div class="department-card-title">情報創造デザイン学科</div>
+                                    <p class="department-card-desc">
+                                        情報を「美しく」「わかりやすく」<br>
+                                        届けるための技術とデザイン思考を学ぶ
+                                    </p>
+                                    <button class="department-button">研究室紹介・予約はこちら</button>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 col-lg-4 mb-4">
+                                <div class="department-card-custom">
+                                    <img src="assets/img/department3.jpeg" alt="分散知能システム学科" class="department-card-img">
+                                    <div class="department-card-title">分散知能システム学科</div>
+                                    <p class="department-card-desc">
+                                        IoT、マルチエージェント、ロボット制御など<br>
+                                        次世代の基盤やスマート都市について学ぶ
+                                    </p>
+                                    <button class="department-button">研究室紹介・予約はこちら</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+
+        <!-- RESERVATIONセクション -->
+        <section id="reservation" class="reservation-section text-center">
+            <h2 class="section-title fade-up">RESERVATION</h2>
+            <p class="reservation-subheading fade-up">研究室の予約確認</p>
+
+            <div class="container py-4 fade-up">
+                <!-- mx-auto: ブロック要素を中央に配置 -->
+                <div class="reservation-box mx-auto">
+                    <!-- JavaScriptで動的に予約一覧を表示切替 -->
+                    <div id="reservation-list"></div>
+                    <!-- 予約が無いときのメッセージ -->
+                    <p id="no-reservation-message" class="no-reservation-message">現在予約している研究室はありません。</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- フッター text-white: 文字色を白に -->
+    <footer class="main-footer text-center text-white py-4">
+        <div class="container">
+            <!-- fw-bold: フォントを太字に small: 文字を小さくする -->
+            <p class="mb-1 fw-bold">ネオテック未来大学 -Neotech Future University- </p>
+            <p class="mb-1">〒123-4567 未来県未来区イノベーション1-2-3</p>
+            <p class="mb-1">TEL：00-1234-5678（平日9:00〜17:00）</p>
+
+            <p class="small mb-1">※ 本サイトは架空の大学のオープンキャンパス特設ページです。</p>
+            <p class="small mb-2">※ 使用画像は全て著作権フリーのものを使用しています。</p>
+
+            <p class="mb-0 small">&copy; 2025 Footer, Inc.</p>
+        </div>
+    </footer>
+
+    <!-- 使用JavaScriptファイル-->
+    <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

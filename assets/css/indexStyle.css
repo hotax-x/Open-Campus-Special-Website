@@ -1,0 +1,81 @@
+/* 全体のスタイル設定 背景色変更 Flexレイアウト適用 */
+body {
+  background-color: #f8f9fa;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+}
+
+/* ヘッダー, フッターの背景色や文字色の設定 */
+header, footer {
+  background-color: #007bff;
+  color: white;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+/* 登録用のフォームを中央に配置 */
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem;
+}
+
+/* 登録用フォームの見た目設定（カード風レイアウト） */
+.auth-wrapper {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  overflow: hidden;
+}
+
+/* 上部タブ */
+.tab-wrapper {
+  display: flex;
+  background-color: #e9ecef;
+}
+
+/* 上部タブの見た目設定 */
+.tab-button {
+  flex: 1;
+  padding: 0.7rem 1rem;
+  border: none;
+  background-color: transparent;
+  font-weight: bold;
+  color: #0d6efd;
+  border-bottom: 3px solid transparent;
+}
+
+/* タブがクリックされているとき、白背景で青い下線をつける */
+.tab-button.active {
+  background-color: white;
+  border-bottom: 3px solid #0d6efd;
+  color: #0d6efd;
+}
+
+.auth-container {
+  padding: 2rem;
+  min-height: 360px;
+}
+
+#loginButton {
+  margin-top: 7.5rem;
+}
+
+/* レスポンシブ対応用のメディアクエリ 主にスマホ用 幅が狭いときフォームを上寄せにする */
+@media (max-width: 767.98px) {
+  main {
+    align-items: flex-start;
+    padding-top: 40px;
+  }
+
+  .auth-container {
+    padding: 1.5rem;
+  }
+}
+

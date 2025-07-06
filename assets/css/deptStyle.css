@@ -1,0 +1,532 @@
+/* ttfファイルを読み込んで、フォントを登録する */
+@font-face {
+    font-family: 'Rounded Mplus 1c';
+    src: url('../fonts/rounded-mplus-1c-regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* 滑らかにスクロールするように */
+html {
+  scroll-behavior: smooth; 
+}
+
+/* ページ全体 */
+body {
+    margin: 0;
+    font-family: 'Rounded Mplus 1c', sans-serif;
+    background-color: #ffffff;
+}
+
+/* ヘッダー全体 */
+.dept-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 0 2rem;
+    background-color: white;
+    border-bottom: 1px solid #ccc;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* スマホ用のハンバーガーメニュー */
+.hamburger {
+    display: none;
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+}
+
+.hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: #333;
+    margin: 3px auto;
+    transition: all 0.3s ease;
+}
+
+.hamburger-label {
+    font-size: 0.7rem;
+    color: #333;
+    margin-top: 4px;
+    font-weight: bold;
+}
+
+/* ハンバーガーメニュークリック時のアニメーション */
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(4px, 4px);
+}
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* スマホ用ナビゲーション */
+.mobile-nav {
+    display: none; /* PCでは非表示 */
+    position: fixed;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(5px);
+    padding: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+    transform: translateY(-200%);
+    transition: transform 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.mobile-nav.show {
+    transform: translateY(0);
+}
+
+/* リンクを横並びにする\ */
+.mobile-nav-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* 各メニュー項目 */
+.mobile-nav .menu-item {
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
+    padding: 0 0.5rem;
+}
+
+/* 区切り線を追加 */
+.mobile-nav-links .menu-item:not(:last-child)::after {
+    content: "|";
+    color: #aaa;
+    margin-left: 1rem;
+}
+
+/* メインページへ戻るボタンのデザイン */
+.mobile-nav .back-button-mobile {
+    display: inline-block;
+    background-color: #006DC0;
+    color: #fff;
+    padding: 8px 24px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo {
+    height: 100px;
+    max-width: 100%;
+}
+
+.header-links {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* PC用ナビゲーション */
+.dept-nav {
+    display: flex;
+    gap: 1rem;
+}
+
+.dept-nav a {
+    position: relative;
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    padding: 1.7rem 0;
+    padding-right: 1.5rem;
+    transition: color 0.3s;
+}
+
+.dept-nav a::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 0%;
+    background-color: #006DC0;
+    transition: width 0.1s ease-out;
+}
+
+.dept-nav a:hover::before {
+    width: 80%;
+}
+
+/* 戻るボタン */
+.back-button {
+    background-color: #006DC0;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.back-button:hover {
+    background-color: #004C9A;
+}
+
+.department-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* 学科説明セクション */
+.dept-section {
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+/* 半透明な背景とぼかし */
+.section-title {
+    font-size: 2rem;
+    color: white;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 0.75rem 1.5rem;
+    border-radius: 1rem;
+    backdrop-filter: blur(4px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    display: inline-block;
+    max-width: 90%;
+    margin: 0 auto 1.5rem auto;
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    text-transform: uppercase;
+}
+
+.section-text {
+    font-size: 1.1rem;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+/* 学科長の言葉と3つのポリシーのカード兼ボタンのデザイン */
+.info-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.info-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 320px;
+    padding: 1rem 1.2rem;
+    border: 1px solid #ccc;
+    border-radius: 1rem;
+    background-color: #f8f9fa;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.info-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.info-card-image {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 1rem;
+}
+
+.info-card-icon img {
+    width: 60px;
+    height: 60px;
+    margin-right: 1rem;
+}
+
+.info-card-text h4 {
+    font-size: 1.1rem;
+    margin: 0;
+    font-weight: bold;
+    text-align: left;
+}
+
+.info-card-text p,
+.info-card-text ul {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #333;
+}
+
+.info-card-text ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.info-card-text li {
+    text-align: left;
+}
+
+.info-card-arrow {
+    font-size: 1.5rem;
+    color: #333;
+    background-color: #B6E5C4;
+    border-radius: 50%;
+    width: 2.2rem;
+    height: 2.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.info-card:hover .info-card-arrow {
+    background-color: #A0DDB0;
+    transform: scale(1.1);
+}
+
+/* 学科紹介セクション全体に背景画像を適用 */
+#intro {
+    background-image: url('../img/bg5.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    z-index: 1;
+}
+
+/* 研究室一覧と体験予約セクション */
+.labs-section {
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.tag-filter-wrapper {
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.tag-filter-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    color: #203240;
+}
+
+/* タグ絞り込み背景 */
+.tag-filter-box {
+    background-color: #B6E5C4;
+    padding: 1.5rem;
+    border-radius: 8px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    row-gap: 1rem;
+    justify-items: center;
+}
+
+/* ラジオボタン本体を隠す */
+input[type="radio"][name="tag"] {
+    display: none;
+}
+
+/* ラジオボタンのラベルをボタンのように見せる */
+.tag-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 180px;
+    height: 48px;
+    font-size: 1rem;
+    border: 2px solid #0071CE;
+    border-radius: 24px;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tag-label:hover {
+    background-color: #E0F4FF;
+}
+
+/* 選択されたときに背景色と文字色を変える */
+input[type="radio"][name="tag"]:checked+.tag-label {
+    background-color: #0071CE;
+    color: white;
+}
+
+.labs-section .col-md-6.col-lg-4 {
+    transition: opacity 0.4s ease-in-out;
+}
+
+/* 研究室のカード */
+.lab-card {
+  border: 1px solid #ccc;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+.lab-highlight {
+  background-color: #D8FFE2;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.lab-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #1e7e34;
+  margin-bottom: 0.5rem;
+  text-align: start;
+}
+
+.lab-subtitle {
+  font-weight: bold;
+  color: #1e7e34;
+  margin-top: 0.5rem;
+  text-align: start;
+}
+
+.lab-description {
+  font-size: 0.95rem;
+  text-align: start;
+}
+
+.lab-professor {
+  font-size: 0.85rem;
+  color: #6c757d;
+  text-align: start;
+}
+
+.lab-tag {
+  font-size: 0.8rem;
+  padding: 0.4em 0.6em;
+  border-radius: 0.5rem;
+  background-color: #d9d9d9;
+  color: #212529;
+  margin-right: 0.3rem;
+}
+
+.lab-image {
+  height: auto;
+  object-fit: cover;
+}
+
+.btn-danger {
+  background-color: #d93025;
+  border: none;
+}
+
+.btn-danger:hover {
+  background-color: #b71c1c;
+}
+
+/* 研究室一覧と体験予約セクション全体に背景画像を適用 */
+#labs {
+    background-image: url('../img/bg6.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    z-index: 1;
+}
+
+/* フッター */
+.main-footer {
+    background-color: #006DC0;
+    color: white;
+    padding: 2rem;
+    font-size: 0.9rem;
+}
+
+/* 最初透明で少し下に配置される */
+.fade-in-target {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* 画面内に入ると、フェードインするように表示 */
+.fade-in-target.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* メディアクエリを実装 */
+@media (max-width: 1080px) {
+    /* PC用ナビゲーションを非表示に */
+    .desktop-nav {
+        display: none;
+    }
+
+    /* ハンバーガーボタンを表示 */
+    .hamburger {
+        display: flex;
+    }
+
+    /* モバイルナビゲーションを表示可能に */
+    .mobile-nav {
+        display: flex;
+    }
+
+    .info-card-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .info-card {
+        width: 90%;
+    }
+
+    .tag-filter-box {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
